@@ -70,7 +70,7 @@ const App = () => {
           <div className="flex items-center gap-3">
             <div className="h-8 w-8 rounded bg-gray-900" />
             <button onClick={() => setView("products")} className="font-semibold">
-              Ecom Cart
+              Vibe Commerce
             </button>
           </div>
           <button

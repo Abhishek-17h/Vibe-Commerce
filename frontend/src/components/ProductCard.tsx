@@ -22,7 +22,7 @@ export default function ProductCard({ product, onAdd }: Props) {
           <span className="text-lg font-bold">${product.price.toFixed(2)}</span>
           <button
             onClick={() => onAdd(product._id)}
-            className="inline-flex items-center px-3 py-2 rounded-md bg-gray-900 text-white hover:bg-black transition-colors"
+            className="inline-flex items-center px-3 py-2 rounded-md bg-gray-900 text-white hover:bg-black transition-colors cursor-pointer"
           >
             Add to Cart
           </button>
