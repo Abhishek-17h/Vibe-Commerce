@@ -6,8 +6,8 @@ export type Product = {
 };
 
 export type CartProduct = {
-  _id: string; // cart item id
-  productId: Product; // populated product
+  _id: string; 
+  productId: Product;
   qty: number;
 };
 

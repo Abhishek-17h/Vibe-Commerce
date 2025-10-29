@@ -122,6 +122,16 @@ Frontend:
 
 ---
 
+## App Screenshots
+
+![App Screenshot](./assets/Homepage.png)
+![App Screenshot](./assets/cart.png)
+![App Screenshot](./assets/checkout.png)
+![App Screenshot](./assets/recipt.png)
+
+---
+
+
 ## License
 
 MIT
