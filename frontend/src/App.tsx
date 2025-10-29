@@ -1,5 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { getProducts, getCart, addToCart, removeFromCart, checkout } from "./lib/api";
+import {
+  getProducts,
+  getCart,
+  addToCart,
+  removeFromCart,
+  checkout,
+} from "./lib/api";
 import type { Product, CartProduct, Receipt } from "./types";
 import ProductCard from "./components/ProductCard";
 import CartPanel from "./components/CartPanel";
@@ -57,7 +63,10 @@ const App = () => {
     return "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4";
   }, []);
 
-  async function handleSubmitCheckout(name: string, email: string): Promise<Receipt> {
+  async function handleSubmitCheckout(
+    name: string,
+    email: string
+  ): Promise<Receipt> {
     const receipt = await checkout({ name, email });
     await refreshCart();
     return receipt;
@@ -65,20 +74,27 @@ const App = () => {
 
   return (
     <div className="min-h-dvh bg-gray-50">
-      <header className="sticky top-0 z-10 bg-white/80 backdrop-blur border-b">
+      <header className="sticky top-0 z-10 bg-white/80 backdrop-blur border-b shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded bg-gray-900" />
-            <button onClick={() => setView("products")} className="font-semibold">
+            <img
+              src="/logo1.svg"
+              alt="Vibe Commerce Logo"
+              className="h-8 w-8 object-contain rounded"
+            />
+            <button
+              onClick={() => setView("products")}
+              className="font-semibold text-lg hover:text-gray-700 transition-colors"
+            >
               Vibe Commerce
             </button>
           </div>
           <button
             onClick={() => setView("cart")}
-            className="inline-flex items-center gap-2 px-3 py-2 rounded-md border hover:bg-gray-50"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-100 transition-all"
           >
-            <span>Cart</span>
-            <span className="inline-flex items-center justify-center h-6 min-w-6 px-2 rounded-full bg-gray-900 text-white text-xs">
+            <span className="font-medium">Cart</span>
+            <span className="inline-flex items-center justify-center h-6 min-w-6 px-2 rounded-full bg-gray-900 text-white text-xs font-semibold">
               {cartItems.length}
             </span>
           </button>
@@ -90,7 +106,9 @@ const App = () => {
           <div className="flex items-end justify-between mb-4">
             <div>
               <h1 className="text-2xl font-bold">Products</h1>
-              <p className="text-sm text-gray-600">Browse and add to your cart</p>
+              <p className="text-sm text-gray-600">
+                Browse and add to your cart
+              </p>
             </div>
             {loading && <div className="text-sm text-gray-500">Loading...</div>}
           </div>
@@ -107,9 +125,14 @@ const App = () => {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold">Your Cart</h1>
-              <p className="text-sm text-gray-600">Review items and proceed to checkout</p>
+              <p className="text-sm text-gray-600">
+                Review items and proceed to checkout
+              </p>
             </div>
-            <button onClick={() => setView("products")} className="text-sm hover:underline">
+            <button
+              onClick={() => setView("products")}
+              className="text-sm hover:underline"
+            >
               Continue shopping
             </button>
           </div>
