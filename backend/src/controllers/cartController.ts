@@ -8,7 +8,6 @@ export const getCart = async (_req: Request, res: Response) => {
     const price = (item.productId as any).price || 0;
     return sum + price * item.qty;
   }, 0);
-  // Optionally prune orphaned cart items (product deleted or reseeded)
   const orphaned = cart.filter((item) => !item.productId).map((i) => i._id);
   if (orphaned.length > 0) {
     await CartItem.deleteMany({ _id: { $in: orphaned } });
